@@ -1,0 +1,19 @@
+Windows doesn't slow down by itself — it just never gets cleaned up. ⚡
+
+Meet OptiMax: a free Windows 10/11 optimizer by ER7 Studio. Portable .exe — download, run, done. No install, no keys, no sign-up.
+
+🔧 35 tasks across 5 categories: Cleanup, Order, Performance, Network, System. Prefer one click? Pick one of 4 profiles: Quick Boost, Deep Clean, Gaming Mode or Full Optimization.
+
+🗂 The "Order" category creates folders right on your Desktop and sorts program shortcuts and files into them by type. System icons — This PC, Recycle Bin — stay untouched. Downloads get the same treatment, inside the folder itself.
+
+↩️ Afraid something breaks? Every change is logged and can be reverted with one button — a full rollback. Plus 3 themes (light, grey, black), 5 interface languages and a live performance dashboard.
+
+🔒 Works 100% offline: no telemetry, no accounts, no network requests. Everything stays on your PC.
+
+💙 And the key part: OptiMax is free for everyone. All 35 tasks and 4 profiles are unlocked from the first launch — no keys, no trials, no subscriptions. It's a gift.
+
+📥 Download OptiMax (Windows 10/11, portable) → https://optimax-ua.vercel.app
+
+Start with the Quick Boost profile, then explore "Order". Tell us in the comments how much space you freed 💬
+
+#OptiMax #ER7Studio #WindowsOptimizer #BoostYourPC #CleanYourPC #PCTips #WindowsTips #FreeSoftware #Windows11 #Windows10 #PCCleaner #PCOptimizer #PerformancePC #GamingPC #TechTips #CleanPC #FasterPC #DesktopOrganizer #OfflineSoftware #OpenSourceTools #PCHealth #SystemCleanup #OptimizePC #ER7

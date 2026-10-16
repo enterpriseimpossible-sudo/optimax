@@ -1,0 +1,162 @@
+[
+  {
+    "file": "slide-01.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 578145,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-02.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 714508,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-03.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 637943,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-04.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 610502,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-05.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 587781,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-06.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 573564,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-07.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 635060,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-08.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 684579,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-09.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 628302,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "slide-10.png",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 621562,
+    "layout": {
+      "canvasW": 1080,
+      "canvasH": 1350,
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "dpr": 1
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  }
+]

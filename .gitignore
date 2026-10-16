@@ -1,0 +1,34 @@
+# ---- dependencies ----
+node_modules/
+
+# ---- build output ----
+release/
+dist/
+out/
+build/
+
+# ---- logs, temp, local state ----
+*.log
+logs/
+tmp/
+settings.backup.json
+*.cpuprofile
+
+# ---- secrets / local env ----
+.env
+.env.local
+.env.*.local
+
+# ---- deployment ----
+.vercel
+
+# ---- editors & OS ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- локальні ярлики ----
+/*.lnk

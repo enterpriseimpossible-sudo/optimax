@@ -1,0 +1,26 @@
+{
+  "name": "optimax",
+  "productName": "OptiMax",
+  "version": "1.4.0",
+  "description": "OptiMax — безкоштовний інструмент оптимізації комп'ютера від ER7 Studio (очищення, порядок, продуктивність, мережа, система). 5 мов інтерфейсу, три теми, повний відкат змін, економний режим для слабких ПК",
+  "author": "ER7 Studio",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test tests/tasks.test.js tests/store.test.js tests/i18n.test.js",
+    "test:order": "node tools/test-order.js",
+    "check:ui": "node tools/check-ui.js",
+    "check:ps": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-ps-syntax.ps1",
+    "verify": "npm test && npm run check:ui && npm run check:ps",
+    "mock": "node tools/serve-ui.js 8899",
+    "site": "node tools/serve-site.js 8902",
+    "task": "node tools/run-task.js",
+    "icon": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-icon.ps1",
+    "package": "npm run icon && electron-packager . OptiMax --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=assets/icon.ico --ignore=\"^/(site|docs|tests|tools|\\.github)($|/)\" && node tools/embed-icon.js release/OptiMax-win32-x64/OptiMax.exe"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "^31.7.7"
+  }
+}

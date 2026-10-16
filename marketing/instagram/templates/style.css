@@ -1,0 +1,234 @@
+/* ============================================================
+   OptiMax · Instagram — спільні стилі шаблонів
+   Полотно задається класами .canvas-post (1080x1350) і
+   .canvas-story (1080x1920). Рендер — tools/render.js (Electron).
+   ============================================================ */
+
+:root {
+  --bg-0: #04050d;
+  --bg-1: #0a0c1e;
+  --accent: #7c5cff;
+  --accent-2: #4f7cff;
+  --accent-3: #b16cff;
+  --text: #f3f5fd;
+  --muted: #9aa3c2;
+  --muted-2: #6f779b;
+  --line: rgba(255, 255, 255, 0.10);
+  --glass: rgba(255, 255, 255, 0.045);
+  --font: "Segoe UI", "Segoe UI Variable Display", "Segoe UI Variable Text",
+          system-ui, -apple-system, Arial, sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px;
+  height: 1350px;
+  overflow: hidden;
+  background: var(--bg-0);
+  font-family: var(--font);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+body.story-mode { height: 1920px; }
+
+/* ---------- полотно ---------- */
+.canvas {
+  position: relative;
+  width: 1080px;
+  height: 100%;
+  overflow: hidden;
+  background:
+    linear-gradient(163deg, #070a1c 0%, #04050d 46%, #0a0718 100%);
+  isolation: isolate;
+}
+
+/* м'яке сяйво */
+.glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .85; }
+.glow-a { width: 900px; height: 900px; left: -320px; top: -340px;
+  background: radial-gradient(circle, rgba(124,92,255,.55) 0%, rgba(124,92,255,0) 68%); }
+.glow-b { width: 820px; height: 820px; right: -300px; top: 240px;
+  background: radial-gradient(circle, rgba(79,124,255,.40) 0%, rgba(79,124,255,0) 68%); }
+.glow-c { width: 900px; height: 700px; left: -140px; bottom: -300px;
+  background: radial-gradient(circle, rgba(177,108,255,.34) 0%, rgba(177,108,255,0) 70%); }
+
+/* тонка технічна сітка */
+.grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 78% 62% at 50% 38%, #000 0%, transparent 100%);
+          mask-image: radial-gradient(ellipse 78% 62% at 50% 38%, #000 0%, transparent 100%);
+}
+
+/* верхня волосяна рамка-акцент */
+.topline {
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, transparent, var(--accent-2), var(--accent), var(--accent-3), transparent);
+  opacity: .9;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ---------- бренд ---------- */
+.brand { display: flex; align-items: center; gap: 22px; }
+
+.mark {
+  width: 84px; height: 84px; flex: 0 0 84px;
+  border-radius: 24px;
+  background: linear-gradient(140deg, var(--accent-2) 0%, var(--accent) 52%, var(--accent-3) 100%);
+  box-shadow:
+    0 18px 44px rgba(124, 92, 255, .45),
+    inset 0 1px 0 rgba(255, 255, 255, .45);
+  display: flex; align-items: center; justify-content: center;
+}
+.mark svg { width: 46px; height: 46px; display: block; }
+
+.brand-text .name {
+  font-size: 46px; font-weight: 700; letter-spacing: -1px; line-height: 1;
+}
+.brand-text .suite {
+  margin-top: 8px;
+  font-size: 17px; font-weight: 600; letter-spacing: 4.2px;
+  color: var(--muted-2); text-transform: uppercase;
+}
+
+.ver {
+  margin-left: auto;
+  font-size: 20px; font-weight: 600; letter-spacing: .6px;
+  color: #cfd6ef;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--glass);
+}
+
+/* ---------- заголовок ---------- */
+h1 {
+  font-size: 82px;
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -2.4px;
+}
+.grad {
+  background: linear-gradient(96deg, #a9c1ff 0%, var(--accent) 42%, var(--accent-3) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.sub {
+  font-size: 30px; line-height: 1.42; font-weight: 400;
+  color: var(--muted); letter-spacing: -.2px;
+}
+
+/* ---------- скріншот у склі ---------- */
+.shot {
+  position: relative; z-index: 1;
+  border-radius: 30px;
+  padding: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.03));
+  border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow:
+    0 44px 90px -28px rgba(0, 0, 0, .85),
+    0 0 0 1px rgba(255, 255, 255, .04) inset;
+}
+.shot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 30px;
+  background: linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,0) 34%);
+  pointer-events: none; mix-blend-mode: screen;
+}
+.shot img {
+  display: block; width: 100%; height: auto;
+  border-radius: 18px;
+}
+/* сяйво за скріншотом (окремий шар, щоб не конфліктувати зі stacking context) */
+.wrap-glow {
+  position: absolute; z-index: 0; pointer-events: none;
+  left: 3%; right: 3%; top: 4%; bottom: 4%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(124,92,255,.46) 0%, rgba(124,92,255,0) 72%);
+  filter: blur(46px);
+}
+
+/* ---------- бейджі ---------- */
+.badges { display: flex; flex-wrap: wrap; gap: 14px; list-style: none; }
+.badges li {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 26px; font-weight: 600; letter-spacing: -.2px;
+  color: #e7ebfb;
+  padding: 16px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.085), rgba(255,255,255,.03));
+}
+.badges li .tick {
+  width: 26px; height: 26px; flex: 0 0 26px; border-radius: 50%;
+  background: linear-gradient(140deg, var(--accent-2), var(--accent-3));
+  display: flex; align-items: center; justify-content: center;
+}
+.badges li .tick svg { width: 15px; height: 15px; }
+
+/* ---------- підвал ---------- */
+.foot {
+  display: flex; align-items: center; gap: 16px;
+  font-size: 27px; font-weight: 600; letter-spacing: .2px;
+  color: #d7ddf5;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+.foot .spark {
+  width: 34px; height: 34px; border-radius: 11px;
+  background: linear-gradient(140deg, var(--accent-2), var(--accent-3));
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 20px rgba(124,92,255,.5);
+}
+.foot .spark svg { width: 19px; height: 19px; }
+.foot .tag { margin-left: auto; color: var(--muted-2); font-weight: 500; font-size: 23px; }
+
+/* ---------- CTA (сторіс) ---------- */
+.cta {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  padding: 30px 40px; border-radius: 26px;
+  font-size: 34px; font-weight: 700; letter-spacing: -.4px; color: #fff;
+  background: linear-gradient(120deg, var(--accent-2) 0%, var(--accent) 55%, var(--accent-3) 100%);
+  box-shadow: 0 26px 60px -16px rgba(124, 92, 255, .78);
+}
+.cta svg { width: 34px; height: 34px; }
+
+/* ---------- квартет цифр (сторіс) ---------- */
+.stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.stat {
+  border-radius: 24px; padding: 26px 28px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+}
+.stat b { display: block; font-size: 46px; font-weight: 700; letter-spacing: -1.2px; line-height: 1; }
+.stat span { display: block; margin-top: 10px; font-size: 23px; color: var(--muted); font-weight: 500; }
+
+/* ---------- сторіс ---------- */
+.canvas-story .inner { padding: 236px 76px 250px; }
+.canvas-story h1 { font-size: 88px; letter-spacing: -2.6px; }
+.canvas-story .sub { font-size: 33px; }
+
+.canvas-story .shot { transform: rotate(-1.6deg); }
+
+.pill-top {
+  position: absolute; z-index: 3; top: 78px; left: 76px;
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 28px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--glass);
+  font-size: 24px; font-weight: 600; letter-spacing: 2.4px; text-transform: uppercase;
+  color: #cdd4ee;
+}
+.pill-top .pulse {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #5df2a8; box-shadow: 0 0 16px #5df2a8;
+}

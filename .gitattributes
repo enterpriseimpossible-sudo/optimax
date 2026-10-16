@@ -1,0 +1,16 @@
+# Нормалізація переносів рядків у git
+* text=auto eol=lf
+
+*.ps1 text eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+
+# Бінарні файли — без конвертації
+*.png binary
+*.jpg binary
+*.ico binary
+*.exe binary
+*.dll binary
+*.wav binary
+*.zip binary
+*.asar binary

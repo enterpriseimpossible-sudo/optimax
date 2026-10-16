@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>OptiMax — сторіс 1080×1920</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  /* --- розкладка сторіс 9:16 (з урахуванням безпечних зон IG) --- */
+  .canvas-story .inner { padding: 262px 76px 250px; }
+  .canvas-story .brand { margin-bottom: 40px; }
+  .canvas-story .head  { margin-bottom: 104px; }
+  .canvas-story .shot-wrap {
+    flex: 1 1 auto; min-height: 0;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .canvas-story .hero { position: relative; width: 848px; }
+  .canvas-story .shot-main { width: 100%; }
+  /* друга картка — темна тема, накладається на верхній правий кут */
+  .shot-mini {
+    position: absolute; z-index: 4;
+    right: -22px; top: -56px;
+    width: 340px; padding: 9px;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.04));
+    border: 1px solid rgba(255,255,255,.18);
+    box-shadow: 0 30px 60px -18px rgba(0,0,0,.9);
+    transform: rotate(5deg);
+  }
+  .shot-mini img { display: block; width: 100%; border-radius: 13px; }
+  .canvas-story .badges { margin-top: 36px; }
+  .canvas-story .cta    { margin-top: 37px; }
+  .canvas-story .foot   { margin-top: 34px; }
+</style>
+</head>
+<body class="story-mode">
+<div class="canvas canvas-story">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="glow glow-c"></div>
+  <div class="grid"></div>
+  <div class="topline"></div>
+
+  <div class="inner">
+
+    <header class="brand">
+      <div class="mark">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13 1.6 3.4 14.1H10l-1 8.5L19 10.1h-6.6L13 1.6z" fill="#ffffff"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <div class="name">OptiMax</div>
+        <div class="suite">PC Optimization Suite</div>
+      </div>
+    </header>
+
+    <section class="head">
+      <h1>35 задач.<br>4 профілі.<br><span class="grad">0 ₴.</span></h1>
+      <p class="sub">Безкоштовний оптимізатор Windows 10/11 — portable .exe</p>
+    </section>
+
+    <div class="shot-wrap">
+      <div class="wrap-glow"></div>
+      <div class="hero">
+        <div class="shot shot-main">
+          <img src="img/app.png" alt="OptiMax: дашборд із живою статистикою та чотирма профілями оптимізації">
+        </div>
+        <div class="shot-mini">
+          <img src="img/theme-black.png" alt="OptiMax у чорній темі: екран налаштувань із вибором теми, мови та економного режиму">
+        </div>
+      </div>
+    </div>
+
+    <ul class="badges">
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>35 задач</li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>3 теми</li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>5 мов</li>
+      <li><span class="tick"><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>100% безкоштовно</li>
+    </ul>
+
+    <div class="cta">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V5m0 0-6.4 6.4M12 5l6.4 6.4" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Завантажити безкоштовно
+    </div>
+
+    <footer class="foot">
+      <span class="spark">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 1.6 3.4 14.1H10l-1 8.5L19 10.1h-6.6L13 1.6z" fill="#fff"/></svg>
+      </span>
+      Створено в ER7 Studio
+      <span class="tag">посилання — в описі профілю</span>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>

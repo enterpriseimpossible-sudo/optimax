@@ -1,0 +1,168 @@
+[
+  {
+    "file": "post-01.png",
+    "target": "1080x1350",
+    "actual": "1080x1350",
+    "exact": true,
+    "bytes": 687270,
+    "layout": {
+      "innerScrollH": 1350,
+      "innerClientH": 1350,
+      "canvasH": 1350,
+      "docScrollW": 1080,
+      "docScrollH": 1350,
+      "dpr": 1
+    },
+    "geometry": {
+      "rects": {
+        ".brand": {
+          "x": 72,
+          "y": 78,
+          "w": 936,
+          "h": 84,
+          "bottom": 162,
+          "right": 1008
+        },
+        "h1": {
+          "x": 72,
+          "y": 206,
+          "w": 936,
+          "h": 174,
+          "bottom": 380,
+          "right": 1008
+        },
+        ".sub": {
+          "x": 72,
+          "y": 380,
+          "w": 936,
+          "h": 43,
+          "bottom": 422,
+          "right": 1008
+        },
+        ".shot": {
+          "x": 72,
+          "y": 493,
+          "w": 936,
+          "h": 552,
+          "bottom": 1045,
+          "right": 1008
+        },
+        ".badges": {
+          "x": 72,
+          "y": 1114,
+          "w": 936,
+          "h": 69,
+          "bottom": 1183,
+          "right": 1008
+        },
+        ".foot": {
+          "x": 72,
+          "y": 1217,
+          "w": 936,
+          "h": 67,
+          "bottom": 1284,
+          "right": 1008
+        }
+      },
+      "checks": []
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  },
+  {
+    "file": "stories-01.png",
+    "target": "1080x1920",
+    "actual": "1080x1920",
+    "exact": true,
+    "bytes": 823312,
+    "layout": {
+      "innerScrollH": 1920,
+      "innerClientH": 1920,
+      "canvasH": 1920,
+      "docScrollW": 1080,
+      "docScrollH": 1920,
+      "dpr": 1
+    },
+    "geometry": {
+      "rects": {
+        ".brand": {
+          "x": 76,
+          "y": 262,
+          "w": 928,
+          "h": 84,
+          "bottom": 346,
+          "right": 1004
+        },
+        "h1": {
+          "x": 76,
+          "y": 386,
+          "w": 928,
+          "h": 280,
+          "bottom": 666,
+          "right": 1004
+        },
+        ".sub": {
+          "x": 76,
+          "y": 666,
+          "w": 928,
+          "h": 47,
+          "bottom": 713,
+          "right": 1004
+        },
+        ".hero": {
+          "x": 116,
+          "y": 818,
+          "w": 848,
+          "h": 502,
+          "bottom": 1320,
+          "right": 964
+        },
+        ".shot": {
+          "x": 109,
+          "y": 806,
+          "w": 862,
+          "h": 525,
+          "bottom": 1331,
+          "right": 971
+        },
+        ".shot-mini": {
+          "x": 638,
+          "y": 748,
+          "w": 357,
+          "h": 233,
+          "bottom": 981,
+          "right": 994
+        },
+        ".badges": {
+          "x": 76,
+          "y": 1357,
+          "w": 928,
+          "h": 69,
+          "bottom": 1426,
+          "right": 1004
+        },
+        ".cta": {
+          "x": 76,
+          "y": 1463,
+          "w": 928,
+          "h": 106,
+          "bottom": 1569,
+          "right": 1004
+        },
+        ".foot": {
+          "x": 76,
+          "y": 1603,
+          "w": 928,
+          "h": 67,
+          "bottom": 1670,
+          "right": 1004
+        }
+      },
+      "checks": []
+    },
+    "warnings": [
+      "%cElectron Security Warning (Insecure Content-Security-Policy) font-weight: bold; This renderer process has either no Content Security\n  Policy set or a policy with \"unsafe-eval\" enabled. This exposes users of\n  this app to unnecessary security risks.\n\nFor more information and help, consult\nhttps://electronjs.org/docs/tutorial/security.\nThis warning will not show up\nonce the app is packaged."
+    ]
+  }
+]

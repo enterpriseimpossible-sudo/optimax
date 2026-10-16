@@ -12,16 +12,43 @@
 
 ## 1. GitHub
 
+**Уже опубліковано:** https://github.com/enterpriseimpossible-sudo/optimax (публічний, MIT,
+топіки: windows · optimizer · electron · powershell · freeware · cleanup · ukrainian,
+домашня сторінка проєкту = лендінг Vercel).
+
+### Інструмент
+
+У системі встановлено GitHub CLI (без PATH, викликати повним шляхом):
+
 ```powershell
-# 1) створіть ПУСТИЙ репозиторій на github.com (без README) — назва, напр. optimax
-# 2) підключіть і надішліть:
-git remote add origin https://github.com/<ВАШ_ЛОГІН>/optimax.git
+$gh = "$env:LOCALAPPDATA\ER7\gh\gh.exe"
+& $gh auth status          # має бути: repo, workflow
+& $gh repo view --web      # відкрити репозиторій
+```
+
+Потрібні scopes: **`repo`** і **`workflow`** (останній — щоб пушити `.github/workflows/ci.yml`).
+Якщо бракує: `& $gh auth refresh -h github.com -s workflow` (device-flow, підтвердити в браузері).
+
+### Первинна публікація (що вже зроблено)
+
+```powershell
+git remote add origin https://github.com/<логін>/optimax.git
+& $gh auth setup-git        # git використовує gh як credential helper
 git push -u origin main
 ```
 
-Під час першого `push` Git запитає вхід: логін + **Personal Access Token**
-(Settings → Developer settings → Personal access tokens → Fine-grained, права `Contents: Read and write`)
-або скористайтесь менеджером облікових даних, якщо він увімкнений.
+### Новий реліз
+
+```powershell
+npm run release             # перезбірка + dist\OptiMax-<версія>-win-x64.zip + SHA256
+& $gh release create v<версія> "dist\OptiMax-<версія>-win-x64.zip" `
+  --title "OptiMax <версія> — безкоштовний оптимізатор Windows" `
+  --notes-file docs/release-notes-v<версія>.md
+```
+
+> Якщо у новому релізі зміниться **назва файлу архіву**, оновіть `DOWNLOAD_URL`
+> у `site/script.js` (кнопка «Завантажити» веде на
+> `.../releases/latest/download/<ім'я файлу>`) і перезадеплойте сайт.
 
 Далі — реліз застосунку як asset (файли збірки у git не потрапляють через ліміт 100 МБ):
 

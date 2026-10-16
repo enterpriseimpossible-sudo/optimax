@@ -14,7 +14,7 @@
 Каталог 35 задач / 5 категорій, 39 PS-скриптів, **270 ключів × 5 мов**.
 Перевірки: тести 14/14, синтаксис PS 39/39, check-ui 0 розбіжностей (270×5; 231 ключ коду,
 44 data-i18n, 74 id), пісочниця «Порядку» 45/45 (з ярликами та undo round-trip).
-Дата: 2026-10-16. Проєкт: `F:\Робоча папка\Проекти\OptiMax` — код у `src/`, open-source (MIT),
+Дата: 2026-10-16. Проєкт: `F:\ER7\OptiMax` — код у `src/`, open-source (MIT),
 git-репозиторій (гілка `main`), ярлик «Запустити OptiMax.lnk» у корені проєкту.
 
 ## Статус v1.3.0 (історія)
@@ -161,7 +161,8 @@ Portable-реліз: `release/OptiMax-win32-x64/OptiMax.exe` (asar, іконка
   README, `docs/EULA.md` (розділ «Безкоштовно для всіх»), `docs/PRIVACY.md`;
   бампи 1.4.0; репак; копія `F:\OptiMax` (зайві файли прибрано вручну — robocopy не видаляє).
 - 2026-10-16 (v1.4.0, open-source + переїзд): проєкт перенесено з `C:\Users\Enterprise\Desktop\OpenCode\optimax`
-  на `F:\Робоча папка\Проекти\OptiMax` (дублікат `F:\OptiMax` видалено, ярлик перестворено в новому корені);
+  на `F:\ER7\OptiMax` (спершу `F:\Робоча папка\Проекти\OptiMax`, потім перенос у корінь диска F:
+  у теку `ER7`; дублікат `F:\OptiMax` видалено, ярлик перестворено в новому корені);
   код переструктуровано в `src/` (`main.js`, `preload.js`, `core/`, `ui/`) з оновленням усіх шляхів
   (`package.json` → `main`, ignore-патерни packager, `check-ui`, `serve-ui`, `check-ps-syntax`, tests, tools);
   додано OSS-обгортку: `LICENSE` (MIT), `CHANGELOG.md`, `CONTRIBUTING.md`, `SECURITY.md`,

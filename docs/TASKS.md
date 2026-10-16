@@ -77,7 +77,7 @@
 
 ## v1.4 — open-source, перенос і публікація
 
-## 28. ✅ Перенос на F: + професійна структура — проєкт переїхав у `F:\Робоча папка\Проекти\OptiMax`
+## 28. ✅ Перенос на F: + професійна структура — проєкт переїхав у `F:\ER7\OptiMax` (корінь диска F, тека ER7)
    (дублікат `F:\OptiMax` прибрано, ярлик у новому корені); код у `src/` (main/preload/core/ui)
    з оновленням усіх шляхів; packager ігнорує site/docs/tests/tools; перевірки й репак після переїзду — ОК
 ## 29. ✅ Open-source оформлення — MIT LICENSE, CHANGELOG, CONTRIBUTING, SECURITY, CODE_OF_CONDUCT,

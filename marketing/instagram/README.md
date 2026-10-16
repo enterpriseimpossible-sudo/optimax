@@ -104,8 +104,8 @@
 Шаблони — це HTML із фіксованим полотном. Рендер виконує Electron, який уже є в проєкті:
 
 ```powershell
-& "F:\Робоча папка\Проекти\OptiMax\node_modules\electron\dist\electron.exe" `
-  "F:\Робоча папка\Проекти\OptiMax\marketing\instagram\tools\render.js"
+& "F:\ER7\OptiMax\node_modules\electron\dist\electron.exe" `
+  "F:\ER7\OptiMax\marketing\instagram\tools\render.js"
 ```
 
 - Результат: `post-01.png` (1080×1350) і `stories-01.png` (1080×1920) у цій теці.

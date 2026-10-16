@@ -159,7 +159,7 @@ npm start          # запуск у dev-режимі
 
 ```powershell
 npm start                                  # dev-запуск
-npm test                                   # node:test: 14/14 (каталог, контракти скриптів, store, i18n)
+npm test                                   # node:test: 25/25 (каталог, контракти скриптів, store, черга виконання, i18n)
 npm run test:ui                            # smoke-тест інтерфейсу (Electron, приховане вікно + мок-API)
 npm run verify                             # тести + цілісність UI + JS-гейт + синтаксис PowerShell
 npm run test:order                         # пісочниця «Порядку»: переміщення + undo на фейкових теках
@@ -203,13 +203,13 @@ OptiMax/
 │  │  ├─ locales/             # uk/en/pl/de/ru.json — 270 ключів кожен
 │  │  ├─ stats.js, startup.js # жива статистика; менеджер автозапуску
 │  │  └─ scripts/             # 39 PS-скриптів: cleanup/ order/ perf/ network/ system/ undo/ startup/
-│  └─ ui/                     # index.html, styles.css, app.js (vanilla, mock-режим для браузера)
+│  └─ ui/                     # index.html, styles.css, js/ (9 модулів; vanilla, mock-режим для браузера)
 ├─ site/                      # лендінг-сторінка продукту (статична, деплой на Vercel)
 ├─ marketing/                 # матеріали для соцмереж (пости, банери)
 ├─ assets/                    # іконки застосунку (ico/png)
 ├─ tools/                     # dev-інструменти: run-task, serve-ui, check-ui, check-ps-syntax,
 │                             # test-order, make-icon, embed-icon, patch-settings, скріншоти
-├─ tests/                     # node:test (tasks, store, i18n)
+├─ tests/                     # node:test (tasks, store, runner, i18n) + smoke-тест UI (tests/smoke)
 ├─ docs/                      # PRD, ARCHITECTURE, RULES, DESIGN, TASKS, MEMORY, EULA, PRIVACY + screens/
 └─ release/OptiMax-win32-x64/ # зібраний portable-застосунок (не в git)
 ```
@@ -260,10 +260,13 @@ OptiMax/
 ## Перевірено на реальній машині
 
 - Синтаксис **39/39** PS-скриптів — без помилок.
-- **14/14** тести `node:test` (каталог, контракт `##RESULT##` у скриптах, undo-kinds, store,
-  i18n: словники/фолбек/підстановка/оцінки часу).
+- **25/25** тести `node:test`: каталог задач і контракти скриптів, сховище, **черга виконання**
+  (статуси, undo, скасування, помилки, URI-задачі, консольні задачі, живий лог), локалізація.
+- **Smoke-тест інтерфейсу** (`npm run test:ui`) — справжній рендерер Electron у прихованому вікні:
+  ініціалізація, навігація, категорія «Порядок», вибір задачі, налаштування, теми, 0 помилок консолі.
 - Цілісність UI: **270 ключів × 5 мов** без розбіжностей, усі ключі з коду/HTML наявні в словниках,
   усі id елементів збігаються з `index.html` (`node tools/check-ui.js`; 231 ключ коду, 44 `data-i18n`, 74 id).
+- `npm run verify` — об'єднує тести, цілісність UI, JS-гейт, синтаксис PowerShell і smoke-тест (CI виконує саме його).
 - Реальні прогони: кеш DNS, тимчасові файли, реєстровий undo round-trip (зміна → відкат → як було).
 - **Повний прогін у запакованому застосунку: 30/30 успішно, 117.4 МБ звільнено, 0 помилок, 0 пропущено.**
 - **v1.4.0 — безкоштовно від ER7 Studio:** ліцензування Free/тріал/PRO (ключі, активація, гейтинг,

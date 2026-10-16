@@ -13,6 +13,9 @@
   Репозиторій став меншим на ~24 МБ.
 
 ### Added
+- **Інтеграційний (e2e) тест** `npm run test:e2e` (`tests/e2e/main.js`): справжній `preload` + IPC +
+  ядрові модулі з фейковим PowerShell — каталог, налаштування, прогін задач із push-подіями,
+  undo-журнал, білий список каналів і заборонені зовнішні адреси (20 перевірок).
 - Гейт якості JS `tools/check-js.js` (`npm run check:js`): синтаксис, заборонені `console.log` у `src/`,
   маркери конфліктів, валідність JSON — підключено у `npm run verify` і CI.
 - **Smoke-тест інтерфейсу** `npm run test:ui` (`tests/smoke/main.js`): справжній рендерер Electron

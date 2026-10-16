@@ -23,7 +23,7 @@ OptiMax/
 │  └─ ui/                      index.html, styles.css, js/ (9 класичних скриптів, без збірки)
 ├─ assets/                     icon.ico, icon.png
 ├─ tools/                      службові скрипти (перевірки, пісочниця, сервери, іконка)
-├─ tests/                      node:test (tasks, store, i18n) + smoke-тест UI (tests/smoke/main.js)
+├─ tests/                      node:test (tasks, store, runner, i18n) + smoke (tests/smoke) + e2e (tests/e2e)
 ├─ docs/                       ця документація + screens/
 ├─ site/                       лендінг (статичний, деплой на Vercel)
 ├─ release/                    результат `npm run package` (не в git)

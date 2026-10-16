@@ -30,7 +30,7 @@ OptiMax — локальний десктопний застосунок для 
 
 | Що | Де | Статус |
 |---|---|---|
-| Сесія Instagram (cookies) | `marketing/instagram/automation/state/auth.json` | **у .gitignore** — у репозиторій не потрапляє |
+| Сесія Instagram (cookies) | `marketing/instagram/automation/state/auth.json` — **тека видалена 2026-10-17** (див. ADR-014) | у репозиторії секретів немає |
 | Токен Vercel (OIDC) | `site/.env.local` | **у `site/.gitignore`** (`.env*`) |
 | Налаштування користувача, журнал відкатів, логи | `%APPDATA%\OptiMax\` | поза репозиторієм, локально |
 
@@ -61,7 +61,7 @@ OptiMax — локальний десктопний застосунок для 
 
 ```powershell
 git status --porcelain            # немає випадкових нових файлів
-git check-ignore -v marketing/instagram/automation/state/auth.json site/.env.local
+git check-ignore -v site/.env.local
 npm run verify                    # тести + цілісність UI + JS-гейт + PowerShell
 npm run package                   # збірка; переконатись, що asar містить лише src/, assets/, package.json
 ```

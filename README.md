@@ -205,7 +205,6 @@ OptiMax/
 │  │  └─ scripts/             # 39 PS-скриптів: cleanup/ order/ perf/ network/ system/ undo/ startup/
 │  └─ ui/                     # index.html, styles.css, js/ (9 модулів; vanilla, mock-режим для браузера)
 ├─ site/                      # лендінг-сторінка продукту (статична, деплой на Vercel)
-├─ marketing/                 # матеріали для соцмереж (пости, банери)
 ├─ assets/                    # іконки застосунку (ico/png)
 ├─ tools/                     # dev-інструменти: run-task, serve-ui, check-ui, check-ps-syntax,
 │                             # test-order, make-icon, embed-icon, patch-settings, скріншоти
@@ -243,7 +242,7 @@ OptiMax/
 - Код — **MIT** (файл `LICENSE`); застосунок — безкоштовний, умови використання в `docs/EULA.md`.
 - Як долучитися (правила, структура, як додати задачу) — `CONTRIBUTING.md`.
 - Історія версій — `CHANGELOG.md`. Питання безпеки — `SECURITY.md`.
-- Лендінг продукту — `site/`; матеріали для соцмереж — `marketing/`.
+- Лендінг продукту — `site/`.
 - Публікація (GitHub + Vercel) — `docs/DEPLOY.md`.
 
 ## Посилання

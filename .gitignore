@@ -18,9 +18,6 @@ settings.backup.json
 .env
 .env.local
 .env.*.local
-marketing/instagram/automation/state/
-marketing/instagram/automation/data/
-marketing/instagram/automation/node_modules/
 
 # ---- deployment ----
 .vercel

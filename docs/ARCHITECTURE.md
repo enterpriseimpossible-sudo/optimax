@@ -39,7 +39,6 @@ OptiMax/
     scripts/           # .ps1 на кожну задачу + undo/restore.ps1
   src/ui/              # index.html, styles.css, app.js
   site/                # лендінг-сторінка продукту (деплой на Vercel)
-  marketing/           # матеріали для соцмереж
   tests/               # node --test
   tools/               # dev-інструменти та перевірки
   docs/                # ці документи

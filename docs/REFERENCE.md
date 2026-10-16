@@ -26,7 +26,6 @@ OptiMax/
 ├─ tests/                      node:test (tasks, store, i18n) + smoke-тест UI (tests/smoke/main.js)
 ├─ docs/                       ця документація + screens/
 ├─ site/                       лендінг (статичний, деплой на Vercel)
-├─ marketing/instagram/        контент для соцмереж + automation (окремий мініпроєкт)
 ├─ release/                    результат `npm run package` (не в git)
 └─ dist/                       релізний zip (не в git)
 ```
@@ -133,11 +132,8 @@ OptiMax/
 | `patch-settings.js`, `write-undo-payload.js` | демо-стани та ручна перевірка відкату |
 | `publish.ps1`, `deploy-vercel.ps1` | публікація (GitHub + Vercel) |
 
-## 9. Контент і автоматизація (`marketing/instagram/`)
+## 9. Історія змін структури
 
-- `carousel/` — 10 слайдів 1080×1350 (+ `carousel.css`, `img/`), рендер: `tools/render-carousel.js`.
-- `stories/` — сторіс 1080×1920 (+ `stories.css`, `img/`, `descriptions.md`), рендер: `tools/render-stories.js`.
-- `captions/` — тексти постів 4 мовами.
-- `templates/` — спільний стиль і шаблони першої ітерації.
-- `automation/` — **окремий мініпроєкт** (власний `package.json`, `playwright-core`): скрипти публікації
-  та перевірок Instagram. Сесія — `automation/state/auth.json` (у git не потрапляє).
+Матеріали для соцмереж (`marketing/instagram/`: карусель, сторіс, тексти, скрипти публікації)
+існували в проєкту до 2026-10-17 і були **видалені** (див. ADR-014) — публікацію завершено,
+потреба відпала. За потреби їх можна відновити з історії git.

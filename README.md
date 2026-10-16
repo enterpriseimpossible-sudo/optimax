@@ -160,6 +160,7 @@ npm start          # запуск у dev-режимі
 ```powershell
 npm start                                  # dev-запуск
 npm test                                   # node:test: 14/14 (каталог, контракти скриптів, store, i18n)
+npm run test:ui                            # smoke-тест інтерфейсу (Electron, приховане вікно + мок-API)
 npm run verify                             # тести + цілісність UI + JS-гейт + синтаксис PowerShell
 npm run test:order                         # пісочниця «Порядку»: переміщення + undo на фейкових теках
 npm run mock                               # UI у браузері: http://127.0.0.1:8899/src/ui/index.html

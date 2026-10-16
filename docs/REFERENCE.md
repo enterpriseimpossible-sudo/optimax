@@ -20,10 +20,10 @@ OptiMax/
 │  │  ├─ startup.js            менеджер автозапуску (StartupApproved)
 │  │  ├─ locales/*.json        270 ключів × 5 мов
 │  │  └─ scripts/**.ps1        39 скриптів: cleanup/ order/ perf/ network/ system/ undo/ startup/
-│  └─ ui/                      index.html, styles.css, app.js (vanilla, без збірки)
+│  └─ ui/                      index.html, styles.css, js/ (9 класичних скриптів, без збірки)
 ├─ assets/                     icon.ico, icon.png
 ├─ tools/                      службові скрипти (перевірки, пісочниця, сервери, іконка)
-├─ tests/                      node:test (tasks, store, i18n)
+├─ tests/                      node:test (tasks, store, i18n) + smoke-тест UI (tests/smoke/main.js)
 ├─ docs/                       ця документація + screens/
 ├─ site/                       лендінг (статичний, деплой на Vercel)
 ├─ marketing/instagram/        контент для соцмереж + automation (окремий мініпроєкт)
@@ -42,7 +42,7 @@ OptiMax/
 | `core/i18n.js` | Локалізація: словники, фолбек `<locale>→en→uk→ключ`, форматування оцінок часу | `t`, `dict`, `locales`, `setLocale`, `estimate`, `missingKeys` |
 | `core/stats.js` | Живі метрики: CPU/RAM/uptime із Node, диски та SMART — через PowerShell (кеш ~15 с) | `Stats` |
 | `core/startup.js` | Список автозапуску та перемикання (реєстр + папки автозавантаження) | `Startup` |
-| `ui/app.js` | Увесь інтерфейс: стан, рендер, обробники, mock-API для браузера | (модуль-сінглтон) |
+| `ui/js/*` | Інтерфейс, розбитий на 9 класичних скриптів (вантажаться з `file://`, тому без ES-модулів): `01-helpers` (стан, форматери, довідники) · `02-mock-api` (мок для браузера) · `03-shell` (локалізація статичного HTML, теми, навігація, шапка) · `04-dashboard` · `05-catalog` (профілі, категорії, виділення) · `06-run` (черга, підсумок, відкат) · `07-views` (автозапуск, історія, налаштування) · `08-ui-kit` (модалка, тости) · `99-boot` (API, `init()`, точка входу) | (модулі-сінглтони, спільний глобальний стан) |
 
 ## 3. IPC (місток renderer ↔ main)
 

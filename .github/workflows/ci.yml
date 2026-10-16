@@ -25,5 +25,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify (tests, UI, JS, PowerShell)
+      - name: Verify (tests, UI, JS, PowerShell, smoke)
         run: npm run verify

@@ -27,7 +27,11 @@ for (const l of LANGS) {
 }
 
 // 2) ключі, які використовує код
-const codeFiles = ['src/ui/app.js', 'src/main.js', 'src/preload.js', 'src/core/runner.js', 'src/core/ps.js', 'src/core/startup.js'];
+const UI_JS_DIR = path.join(root, 'src/ui/js');
+const uiJsFiles = fs.existsSync(UI_JS_DIR)
+  ? fs.readdirSync(UI_JS_DIR).filter((f) => f.endsWith('.js')).sort().map((f) => `src/ui/js/${f}`)
+  : ['src/ui/app.js'];
+const codeFiles = [...uiJsFiles, 'src/main.js', 'src/preload.js', 'src/core/runner.js', 'src/core/ps.js', 'src/core/startup.js'];
 const used = new Set();
 const reKey = /\b(?:i18n\.)?t\(\s*['"`]([A-Za-z0-9._-]+)['"`]/g;
 for (const f of codeFiles) {
@@ -67,7 +71,7 @@ console.log(`[html] data-i18n keys: ${attrKeys.size} — ${missingAttr.length ? 
 if (missingAttr.length) bad('missing in uk.json: ' + missingAttr.join(', '));
 
 // 4) id, які звертає app.js, мають існувати в index.html (крім динамічних)
-const app = fs.readFileSync(path.join(root, 'src/ui/app.js'), 'utf8');
+const app = uiJsFiles.map((f) => fs.readFileSync(path.join(root, f), 'utf8')).join('\n');
 const dynamicIds = new Set(['addRP', 'liveLog', 'setLocale', 'setLite', 'setTheme', 'setStats', 'setConfirm', 'btnOpenData', 'btnClearLogs', 'btnReset', 'btnEula', 'btnPrivacy', 'prepareCleanup']);
 const ids = new Set();
 let m3;

@@ -27,9 +27,13 @@ git push -u origin main
 
 ```powershell
 npm run package
-Compress-Archive -Path release\OptiMax-win32-x64\* -DestinationPath OptiMax-1.4.0-win-x64.zip
-# GitHub → Releases → Draft a new release → прикріпіть zip
+# архів уже зібрано: dist\OptiMax-1.4.0-win-x64.zip (~106 МБ)
+# SHA256: 2BA51024935F3315D4D91C0C331260F0DE7171E3760A9F1171067E7653092A5B
+# GitHub → Releases → Draft a new release → tag v1.4.0 → прикріпіть цей zip
 ```
+
+Після створення релізу замініть у `site/script.js` змінну `DOWNLOAD_URL` на
+`https://github.com/<ВАШ_ЛОГІН>/optimax/releases/latest` — кнопки «Завантажити» почнуть вести на релізи.
 
 ## 2. Vercel
 

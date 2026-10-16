@@ -222,9 +222,10 @@ OptiMax/
 
 | Що | Де |
 |---|---|
-| Сайт продукту | локально: `npm run site` → http://127.0.0.1:8902/ (після деплою — публічна адреса) |
+| Сайт продукту (тимчасово) | https://pan-surrey-hampton-newport.trycloudflare.com/ — живе, поки запущено тунель; постійна адреса — після `npx vercel --prod site` |
+| Локально | `npm run site` → http://127.0.0.1:8902/ |
 | Репозиторій | *з'явиться після публікації на GitHub* |
-| Завантажити | `release\OptiMax-win32-x64\OptiMax.exe` (portable) · GitHub Releases (після публікації) |
+| Завантажити | `dist\OptiMax-1.4.0-win-x64.zip` (105.6 МБ, не в git) · GitHub Releases (після публікації) |
 
 
 

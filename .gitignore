@@ -13,6 +13,7 @@ logs/
 tmp/
 settings.backup.json
 *.cpuprofile
+tests/visual/baseline/*.current.png
 
 # ---- secrets / local env ----
 .env

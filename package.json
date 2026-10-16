@@ -11,6 +11,7 @@
     "test": "node --test tests/tasks.test.js tests/store.test.js tests/runner.test.js tests/i18n.test.js",
     "test:ui": "electron tests/smoke/main.js",
     "test:e2e": "electron tests/e2e/main.js",
+    "test:visual": "electron tools/test-visual.js",
     "test:order": "node tools/test-order.js",
     "check:ui": "node tools/check-ui.js",
     "check:js": "node tools/check-js.js",

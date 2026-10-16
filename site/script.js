@@ -16,10 +16,10 @@ document.documentElement.classList.add('js');
    сторінці). КОЛИ БУДЕ РЕЛІЗ — замініть на пряме посилання GitHub Releases:
    const DOWNLOAD_URL = 'https://github.com/<org>/<repo>/releases/latest/download/OptiMax.exe';
    (або на сторінку релізів: 'https://github.com/<org>/<repo>/releases/latest'). */
-const DOWNLOAD_URL = '#download';
+const DOWNLOAD_URL = 'https://github.com/enterpriseimpossible-sudo/optimax/releases/latest/download/OptiMax-1.4.0-win-x64.zip';
 
-/* GITHUB_URL — посилання на репозиторій/релізи (заглушка). */
-const GITHUB_URL = 'https://github.com/';
+/* GITHUB_URL — посилання на репозиторій/релізи. */
+const GITHUB_URL = 'https://github.com/enterpriseimpossible-sudo/optimax';
 
 /* Мова за замовчуванням (uk — вміст у HTML, en — словник нижче). */
 const DEFAULT_LANG = 'uk';

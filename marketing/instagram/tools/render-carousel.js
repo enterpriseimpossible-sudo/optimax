@@ -80,7 +80,7 @@ app.whenReady().then(async () => {
   const results = [];
   try {
     for (const t of TARGETS) results.push(await shot(t));
-    fs.writeFileSync(REPORT, JSON.stringify(results, null, 2), 'utf8');
+    fs.writeFileSync(REPORT, JSON.stringify(results, null, 2) + '\n', 'utf8');
     const bad = results.filter((r) => !r.exact || r.warnings.length);
     app.exit(bad.length ? 1 : 0);
   } catch (err) {

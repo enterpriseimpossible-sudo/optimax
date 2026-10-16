@@ -25,11 +25,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Unit tests
-        run: npm test
-
-      - name: UI & locale integrity
-        run: npm run check:ui
-
-      - name: PowerShell syntax
-        run: npm run check:ps
+      - name: Verify (tests, UI, JS, PowerShell)
+        run: npm run verify

@@ -69,6 +69,9 @@ OptiMax — **безкоштовний** застосунок від **ER7 Studi
 
 ## Швидкий старт
 
+**Вимоги:** Windows 10/11 (x64) · PowerShell 5.1 (вбудований у систему) ·
+для розробки — Node.js **≥ 20** (CI перевіряє на 20.x і 22.x; `.nvmrc` — 22).
+
 **Готовий portable-застосунок** (нічого встановлювати не треба):
 
 ```
@@ -157,7 +160,7 @@ npm start          # запуск у dev-режимі
 ```powershell
 npm start                                  # dev-запуск
 npm test                                   # node:test: 14/14 (каталог, контракти скриптів, store, i18n)
-npm run verify                             # тести + цілісність UI + синтаксис PowerShell (усе одразу)
+npm run verify                             # тести + цілісність UI + JS-гейт + синтаксис PowerShell
 npm run test:order                         # пісочниця «Порядку»: переміщення + undo на фейкових теках
 npm run mock                               # UI у браузері: http://127.0.0.1:8899/src/ui/index.html
 npm run package                            # portable-збірка (іконка → packager → version info)
@@ -209,6 +212,30 @@ OptiMax/
 ├─ docs/                      # PRD, ARCHITECTURE, RULES, DESIGN, TASKS, MEMORY, EULA, PRIVACY + screens/
 └─ release/OptiMax-win32-x64/ # зібраний portable-застосунок (не в git)
 ```
+
+## Документація
+
+| Документ | Про що |
+|---|---|
+| [`docs/README.md`](docs/README.md) | покажчик усієї документації |
+| [`docs/REFERENCE.md`](docs/REFERENCE.md) | карта тек і модулів, IPC-канали, схема задач, файли даних |
+| [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/DECISIONS.md`](docs/DECISIONS.md) | архітектура та журнал рішень (ADR) |
+| [`docs/TESTING.md`](docs/TESTING.md) | команди перевірок, покриття, прогалини |
+| [`docs/SECURITY.md`](docs/SECURITY.md) · [`SECURITY.md`](SECURITY.md) | модель безпеки, секрети, ризики · як повідомити про вразливість |
+| [`docs/DEPLOY.md`](docs/DEPLOY.md) | публікація (GitHub, Vercel, релізний архів) |
+| [`docs/TECH-DEBT.md`](docs/TECH-DEBT.md) | відомі проблеми та беклог за пріоритетами |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) · [`CHANGELOG.md`](CHANGELOG.md) | як долучитися · історія версій |
+
+## Типові проблеми
+
+| Симптом | Причина | Що робити |
+|---|---|---|
+| Частина задач «пропущена» або позначена як недоступна | застосунок запущено без прав адміністратора | натиснути «Підвищити» в застосунку або запустити `OptiMax.exe` від імені адміністратора |
+| Черга «завмерла» на задачі SFC/DISM/chkdsk/WinSxS | консольна задача виконується у видимому вікні PowerShell | закрити вікно консолі — черга продовжиться |
+| `npm run package` падає на розпакуванні Electron | `@electron-internal/extract-zip` потребує VC++ DLL | скопіювати `msvcp140.dll`, `vcruntime140.dll`, `vcruntime140_1.dll` у `node_modules\@electron-internal\extract-zip\` (див. розділ «Збірка») |
+| Зміни не повертаються | журнал відкатів очищено | повернення можливе лише для записів, які є в `%APPDATA%\OptiMax\restore.json` |
+| `npm run verify` падає на `check:ui` | у словнику бракує ключа або зайвий | вирівняти `src/core/locales/*.json` (усі 5 мов мусять мати однакові ключі) |
+| Скріншоти вікна порожні | PrintWindow віддає застарілий кадр | використовувати `tools/shot.ps1` (пауза + подвійний захват), вікно має бути на передньому плані |
 
 ## Ліцензія та участь
 

@@ -26,9 +26,9 @@ git push -u origin main
 Далі — реліз застосунку як asset (файли збірки у git не потрапляють через ліміт 100 МБ):
 
 ```powershell
-npm run package
-# архів уже зібрано: dist\OptiMax-1.4.0-win-x64.zip (~106 МБ)
-# SHA256: 2BA51024935F3315D4D91C0C331260F0DE7171E3760A9F1171067E7653092A5B
+npm run release      # = npm run package + стиснення у dist\OptiMax-<версія>-win-x64.zip + друк SHA256
+# поточний архів: dist\OptiMax-1.4.0-win-x64.zip (105.6 МБ)
+# SHA256: 2C6CA8CA8949D58AF012530132F92FA792FAC790E3B953D6CEFE73EED4A52420
 # GitHub → Releases → Draft a new release → tag v1.4.0 → прикріпіть цей zip
 ```
 

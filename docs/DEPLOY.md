@@ -37,24 +37,34 @@ npm run package
 
 ## 2. Vercel
 
-### Варіант A — тимчасовий публічний URL без акаунта (швидко, діє обмежений час)
+**Уже задеплоєно:** 🌐 **https://optimax-ua.vercel.app** — проєкт `optimax-ua` (scope `er-7`),
+лендінг лежить у `site/`, привʼязаний через `site/.vercel/project.json`.
+
+Передеплой після правок сайту:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools\deploy-vercel.ps1   # або:
+cd site; npx vercel --prod --yes
+```
+
+### Новий/інший проєкт (коротка адреса `<назва>.vercel.app`)
+
+```powershell
+npx --yes vercel login                          # один раз
+npx --yes vercel project create optimax-ua      # назва = майбутня адреса (якщо вільна)
+cd site; npx --yes vercel link --yes --project optimax-ua; npx --yes vercel --prod --yes
+```
+
+Якщо імʼя вже зайняте кимось у світі, Vercel додасть суфікс (`<назва>-<щось>.vercel.app`) —
+обирайте іншу коротку назву.
+
+### Варіант B — тимчасовий публічний URL без акаунта
 
 ```powershell
 npx --yes vercel deploy site --temporary --yes
 ```
 
-Vercel CLI надрукує публічну адресу. Такий деплой можна пізніше «забрати» під свій акаунт.
-
-### Варіант B — постійний деплой (потрібен акаунт Vercel)
-
-```powershell
-npx --yes vercel login          # один раз: вхід у браузері або токен
-npx --yes vercel --prod site    # production-деплой лендінга
-```
-
-Або через дашборд: **Add New → Project → Import** ваш GitHub-репозиторій, а в налаштуваннях
-проєкту вкажіть **Root Directory = `site`** (Framework Preset: *Other*, Build Command — порожній).
-Тоді кожен `git push` у `main` автоматично оновлює сайт.
+Такий деплой захищений авторизацією Vercel і для сторонніх не відкривається — лише для перевірки.
 
 ## 3. Після деплою
 

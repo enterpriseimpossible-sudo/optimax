@@ -222,7 +222,7 @@ OptiMax/
 
 | Що | Де |
 |---|---|
-| Сайт продукту (тимчасово) | https://pan-surrey-hampton-newport.trycloudflare.com/ — живе, поки запущено тунель; постійна адреса — після `npx vercel --prod site` |
+| 🌐 Сайт продукту | **https://optimax-ua.vercel.app** (проєкт `optimax-ua` на Vercel) |
 | Локально | `npm run site` → http://127.0.0.1:8902/ |
 | Репозиторій | *з'явиться після публікації на GitHub* |
 | Завантажити | `dist\OptiMax-1.4.0-win-x64.zip` (105.6 МБ, не в git) · GitHub Releases (після публікації) |

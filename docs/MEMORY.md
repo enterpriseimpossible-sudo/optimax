@@ -172,3 +172,10 @@ Portable-реліз: `release/OptiMax-win32-x64/OptiMax.exe` (asar, іконка
   інструкції публікації (GitHub + Vercel, зокрема `vercel deploy --temporary` без акаунта) — `docs/DEPLOY.md`.
   Перевірки після переїзду: тести 14/14, check-ui 0 проблем, PS 39/39, пісочниця «Порядку» — усі OK,
   репак і димовий запуск exe — ОК (asar без site/docs/tools/tests).
+- 2026-10-16 (деплой): лендінг опубліковано на Vercel — **https://optimax-ua.vercel.app**
+  (проєкт `optimax-ua`, scope `er-7`; `site/.vercel/project.json`, `.vercel` у .gitignore).
+  Вхід виконано через `vercel login` (device-flow, акаунт користувача). Імена `optimax`/`optima`
+  глобально зайняті — Vercel додавав суфікси, тому взято `optimax-ua` (чиста адреса без суфікса);
+  зайві проєкти (`optimax`, `optima`) видалено. Додано `tools/deploy-vercel.ps1`.
+  Тимчасовий тунель trycloudflare (для перевірки до логіну) зупинено.
+  Залишається: `git push` на GitHub (акаунта немає в середовищі) і публікація Instagram-поста.

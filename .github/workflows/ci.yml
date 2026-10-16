@@ -27,3 +27,7 @@ jobs:
 
       - name: Verify (tests, UI, JS, PowerShell, smoke)
         run: npm run verify
+
+      - name: Order sandbox (file/undo round-trip)
+        run: npm run test:order
+        shell: pwsh

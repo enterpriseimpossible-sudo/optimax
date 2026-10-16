@@ -36,7 +36,7 @@ OptiMax/
 | Модуль | Відповідальність | Ключові експорти |
 |---|---|---|
 | `core/tasks.js` | Каталог задач і профілів — **єдине джерело правди** для структури | `TASKS`, `CATEGORIES`, `PROFILES`, `getTask(id)` |
-| `core/runner.js` | Послідовна черга: запуск задач, події прогресу, скасування, накопичення undo-записів | `Runner` (`run`, `cancel`, `runScript`) |
+| `core/runner.js` | Послідовна черга: запуск задач, події прогресу, скасування, накопичення undo-записів. Залежності (`ps`, `openExternal`) інжектуються через конструктор — для юніт-тестів | `Runner(store, deps)`, `run`, `cancel`, `runScript` |
 | `core/ps.js` | Низькорівневий запуск PowerShell: прихований/консольний режим, `##RESULT##`-парсинг, `isAdmin` | `runPowerShell`, `runConsole`, `loadScript`, `isAdmin` |
 | `core/store.js` | Стан застосунку: налаштування, журнал відкатів, логи, тимчасові файли | `Store`, `DEFAULT_SETTINGS` |
 | `core/i18n.js` | Локалізація: словники, фолбек `<locale>→en→uk→ключ`, форматування оцінок часу | `t`, `dict`, `locales`, `setLocale`, `estimate`, `missingKeys` |

@@ -8,7 +8,7 @@
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node --test tests/tasks.test.js tests/store.test.js tests/i18n.test.js",
+    "test": "node --test tests/tasks.test.js tests/store.test.js tests/runner.test.js tests/i18n.test.js",
     "test:ui": "electron tests/smoke/main.js",
     "test:order": "node tools/test-order.js",
     "check:ui": "node tools/check-ui.js",

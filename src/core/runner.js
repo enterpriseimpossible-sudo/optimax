@@ -2,11 +2,21 @@
 /**
  * runner.js — черга виконання задач із прогресом, скасуванням, undo-записами та логом.
  * Користувацькі повідомлення локалізуються через core/i18n (мова береться з налаштувань).
+ *
+ * Тестованість: залежності (модуль PowerShell і відкриття зовнішніх адрес) інжектуються
+ * через конструктор. За замовчуванням використовуються справжні `core/ps` і Electron-shell,
+ * тому поведінка застосунку не змінюється — лише з'являється шов для юніт-тестів.
  */
 const { EventEmitter } = require('events');
 const { getTask } = require('./tasks');
 const i18n = require('./i18n');
 const ps = require('./ps');
+
+/** Відкриття системних URI (у тестах підміняється, щоб не тягнути Electron). */
+function openExternalDefault(uri) {
+  const { shell } = require('electron');
+  return shell.openExternal(uri);
+}
 
 function fmtBytes(n) {
   if (!n) return `0 ${i18n.t('unit.b')}`;
@@ -21,9 +31,15 @@ function taskTitle(t) {
 }
 
 class Runner extends EventEmitter {
-  constructor(store) {
+  /**
+   * @param {object} store сховище (settings/restore/logs/tmp)
+   * @param {{ ps?: object, openExternal?: Function }} [deps] залежності для тестів
+   */
+  constructor(store, deps = {}) {
     super();
     this.store = store;
+    this.ps = deps.ps || ps;
+    this.openExternal = deps.openExternal || openExternalDefault;
     this.running = false;
     this.cancelled = false;
     this.current = null; // { cancel() }
@@ -41,7 +57,7 @@ class Runner extends EventEmitter {
 
     this.running = true;
     this.cancelled = false;
-    const admin = await ps.isAdmin();
+    const admin = await this.ps.isAdmin();
     const total = tasks.length;
     const results = [];
     let freedTotal = 0;
@@ -117,22 +133,21 @@ class Runner extends EventEmitter {
 
   async executeTask(t) {
     if (t.uri) {
-      const { shell } = require('electron');
-      await shell.openExternal(t.uri);
+      await this.openExternal(t.uri);
       return { ok: true, result: { ok: true, message: i18n.t('msg.opened-settings') } };
     }
-    const body = ps.loadScript(t.script);
+    const body = this.ps.loadScript(t.script);
     const onLine = (line) => this.emit('run:log', { id: t.id, line });
 
     if (t.console) {
-      const h = ps.runConsole(body, { tmpDir: this.store.tmpDir, onLine });
+      const h = this.ps.runConsole(body, { tmpDir: this.store.tmpDir, onLine });
       this.current = h;
       const out = await h.promise;
       if (!out.ok) return { ok: false, result: out.result };
       return { ok: true, result: out.result || { ok: true, message: i18n.t('msg.ok') } };
     }
 
-    const h = ps.runPowerShell(body, { timeoutMs: t.timeoutMs || 600000, onLine });
+    const h = this.ps.runPowerShell(body, { timeoutMs: t.timeoutMs || 600000, onLine });
     this.current = h;
     const out = await h.promise;
     if (out.timedOut) return { ok: false, result: { ok: false, message: i18n.t('msg.timeout') } };
@@ -145,8 +160,8 @@ class Runner extends EventEmitter {
 
   /** Допоміжний запуск окремого скрипта (статистика, аналіз, автозапуск, undo). */
   async runScript(relPath, { timeoutMs = 180000, env = {}, onLine } = {}) {
-    const body = ps.loadScript(relPath);
-    const h = ps.runPowerShell(body, { timeoutMs, env, onLine });
+    const body = this.ps.loadScript(relPath);
+    const h = this.ps.runPowerShell(body, { timeoutMs, env, onLine });
     const out = await h.promise;
     return out;
   }

@@ -3,6 +3,10 @@
    OptiMax landing page — vanilla JS (no dependencies, fully offline)
    ========================================================================== */
 
+/* Mark the document as "scripted" only when this file actually runs, so that
+   the page stays fully readable if the script is blocked or fails to parse. */
+document.documentElement.classList.add('js');
+
 /* --------------------------------------------------------------------------
    1. CONFIG
    -------------------------------------------------------------------------- */
@@ -409,11 +413,24 @@ applyLanguage(storedLang === 'en' ? 'en' : 'uk');
 
 /* --------------------------------------------------------------------------
    6. Sticky header state
+   The 1px sentinel + IntersectionObserver is the primary (deterministic)
+   signal; the scroll listener stays as a harmless secondary trigger.
    -------------------------------------------------------------------------- */
 const header = $('.site-header');
-const onScroll = () => header.classList.toggle('is-stuck', window.scrollY > 8);
-onScroll();
-window.addEventListener('scroll', onScroll, { passive: true });
+const sentinel = document.createElement('div');
+sentinel.className = 'top-sentinel';
+sentinel.setAttribute('aria-hidden', 'true');
+document.body.prepend(sentinel);
+
+function updateHeaderState() {
+  const stuck = sentinel.getBoundingClientRect().bottom < 1 || window.scrollY > 8;
+  header.classList.toggle('is-stuck', stuck);
+}
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(updateHeaderState, { threshold: [0, 1] }).observe(sentinel);
+}
 
 /* --------------------------------------------------------------------------
    7. Mobile navigation
@@ -441,8 +458,11 @@ window.addEventListener('resize', () => {
    8. Reveal on scroll
    -------------------------------------------------------------------------- */
 const revealNodes = $$('.reveal');
-if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+function showAllReveals() {
   revealNodes.forEach((el) => el.classList.add('is-visible'));
+}
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+  showAllReveals();
 } else {
   const revealObserver = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
@@ -456,25 +476,35 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
   revealNodes.forEach((el) => revealObserver.observe(el));
+  /* Safety net: never leave content hidden if the observer misbehaves. */
+  window.setTimeout(showAllReveals, 3000);
 }
 
-/* Active section highlighting in the header nav */
+/* Active section highlighting in the header nav — computed from layout, so it
+   works even where scroll events are not delivered. */
 const navLinks = $$('#main-nav a[href^="#"]');
-const sections = navLinks
-  .map((a) => document.querySelector(a.getAttribute('href')))
-  .filter(Boolean);
-if ('IntersectionObserver' in window && sections.length) {
-  const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navLinks.forEach((a) => {
-        const match = a.getAttribute('href') === '#' + entry.target.id;
-        if (match) a.setAttribute('aria-current', 'true');
-        else a.removeAttribute('aria-current');
-      });
-    });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  sections.forEach((s) => navObserver.observe(s));
+const watchedSections = $$('main > section[id]');
+function syncNavHighlight() {
+  const anchorY = window.innerHeight * 0.35;
+  let current = null;
+  watchedSections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= anchorY) current = section;
+  });
+  const id = current ? current.id : null;
+  navLinks.forEach((a) => {
+    if (id && a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true');
+    else a.removeAttribute('aria-current');
+  });
+}
+if ('IntersectionObserver' in window && watchedSections.length) {
+  const navObserver = new IntersectionObserver(() => syncNavHighlight(), {
+    rootMargin: '-40% 0px -55% 0px',
+    threshold: [0, 0.5, 1]
+  });
+  watchedSections.forEach((s) => navObserver.observe(s));
+  window.addEventListener('scroll', syncNavHighlight, { passive: true });
+  window.addEventListener('resize', syncNavHighlight);
+  syncNavHighlight();
 }
 
 /* --------------------------------------------------------------------------

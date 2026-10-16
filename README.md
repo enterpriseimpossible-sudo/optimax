@@ -13,15 +13,15 @@
 
 | Головний екран | Прогін у дії | Результат |
 |---|---|---|
-| ![UI](docs/screens/app.png) | ![run](docs/screens/run-in-progress.png) | ![result](docs/screens/system-run.png) |
+| ![UI](docs/screens/app.webp) | ![run](docs/screens/run-in-progress.webp) | ![result](docs/screens/system-run.webp) |
 
 | Налаштування | Про застосунок | English UI | Категорія «Порядок» |
 |---|---|---|---|
-| ![settings](docs/screens/settings-uk.png) | ![about](docs/screens/about-uk.png) | ![en](docs/screens/dashboard-en.png) | ![order](docs/screens/order-uk.png) |
+| ![settings](docs/screens/settings-uk.webp) | ![about](docs/screens/about-uk.webp) | ![en](docs/screens/dashboard-en.webp) | ![order](docs/screens/order-uk.webp) |
 
 | Тема: сіра | Тема: чорна |
 |---|---|
-| ![gray](docs/screens/theme-gray.png) | ![black](docs/screens/theme-black.png) |
+| ![gray](docs/screens/theme-gray.webp) | ![black](docs/screens/theme-black.webp) |
 
 > Тема **світла** — типова (див. скріншоти вище). Усі три перемикаються миттєво в
 > «Налаштування → Тема» та зберігаються.

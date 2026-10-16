@@ -12,8 +12,8 @@
 | `script.js` | `DOWNLOAD_URL` / `GITHUB_URL`, перемикач мов UA/EN, таби категорій, галерея (lightbox), анімації появи |
 | `assets/` | реальні скріншоти застосунку + іконка |
 | `vercel.json` | конфіг статичного хостингу (cleanUrls, кеш активів, базові заголовки) |
-| `preview-desktop.png` | повносторінковий скріншот лендінга (1440 px) |
-| `preview-mobile.png` | мобільний рендер (390 px) |
+| `preview-desktop.webp` | повносторінковий скріншот лендінга (1440 px) |
+| `preview-mobile.webp` | мобільний рендер (390 px) |
 
 ## Локальний перегляд
 
@@ -29,7 +29,7 @@ npx --yes http-server site -p 8902
 
 ### Скріншоти
 
-`preview-desktop.png` і `preview-mobile.png` знято headless Chrome. Повну
+`preview-desktop.webp` і `preview-mobile.webp` знято headless Chrome. Повну
 сторінку рендерили у вікні 1440×10099 (у Chrome CLI немає режиму full-page),
 мобільний кадр — це сторінка всередині фіксованого фрейму 390 px, тобто
 справжній мобільний viewport.

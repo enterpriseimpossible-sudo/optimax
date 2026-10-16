@@ -11,16 +11,31 @@
     "test": "node --test tests/tasks.test.js tests/store.test.js tests/i18n.test.js",
     "test:order": "node tools/test-order.js",
     "check:ui": "node tools/check-ui.js",
+    "check:js": "node tools/check-js.js",
     "check:ps": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/check-ps-syntax.ps1",
-    "verify": "npm test && npm run check:ui && npm run check:ps",
+    "verify": "npm test && npm run check:ui && npm run check:js && npm run check:ps",
     "mock": "node tools/serve-ui.js 8899",
     "site": "node tools/serve-site.js 8902",
     "task": "node tools/run-task.js",
     "icon": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-icon.ps1",
-    "package": "npm run icon && electron-packager . OptiMax --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=assets/icon.ico --ignore=\"^/(site|docs|tests|tools|\\.github)($|/)\" && node tools/embed-icon.js release/OptiMax-win32-x64/OptiMax.exe"
+    "package": "npm run icon && electron-packager . OptiMax --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=assets/icon.ico --ignore=\"^/(site|docs|tests|tools|marketing|dist|release|\\.github|\\.git)($|/)\" --ignore=\"^/\\.(editorconfig|gitattributes|gitignore|nvmrc)$\" --ignore=\"^/(CONTRIBUTING|CODE_OF_CONDUCT|SECURITY|CHANGELOG)\\.md$\" --ignore=\"\\.lnk$\" && node tools/embed-icon.js release/OptiMax-win32-x64/OptiMax.exe",
+    "release": "npm run package && powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-release-zip.ps1"
   },
   "devDependencies": {
     "@electron/packager": "^20.3.0",
     "electron": "^31.7.7"
-  }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "windows",
+    "optimizer",
+    "cleanup",
+    "powershell",
+    "electron",
+    "freeware",
+    "ukrainian",
+    "er7"
+  ]
 }

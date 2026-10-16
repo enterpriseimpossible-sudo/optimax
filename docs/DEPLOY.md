@@ -28,7 +28,7 @@ git push -u origin main
 ```powershell
 npm run release      # = npm run package + стиснення у dist\OptiMax-<версія>-win-x64.zip + друк SHA256
 # поточний архів: dist\OptiMax-1.4.0-win-x64.zip (105.6 МБ)
-# SHA256: 2C6CA8CA8949D58AF012530132F92FA792FAC790E3B953D6CEFE73EED4A52420
+# SHA256: 4BB9CFF08FC94B3C7B6F0AD0A630F48627D9F84B20641B8E0E701022F86BE387
 # GitHub → Releases → Draft a new release → tag v1.4.0 → прикріпіть цей zip
 ```
 

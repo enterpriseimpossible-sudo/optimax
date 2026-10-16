@@ -21,6 +21,7 @@
     "task": "node tools/run-task.js",
     "icon": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-icon.ps1",
     "package": "npm run icon && electron-packager . OptiMax --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=assets/icon.ico --ignore=\"^/(site|docs|tests|tools|marketing|dist|release|\\.github|\\.git)($|/)\" --ignore=\"^/\\.(editorconfig|gitattributes|gitignore|nvmrc)$\" --ignore=\"^/(CONTRIBUTING|CODE_OF_CONDUCT|SECURITY|CHANGELOG)\\.md$\" --ignore=\"\\.lnk$\" && node tools/embed-icon.js release/OptiMax-win32-x64/OptiMax.exe",
+    "package:vc": "npm run package && powershell -NoProfile -ExecutionPolicy Bypass -File tools/bundle-vcruntime.ps1",
     "release": "npm run package && powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-release-zip.ps1"
   },
   "devDependencies": {

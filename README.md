@@ -13,7 +13,7 @@
 
 | Головний екран | Прогін у дії | Результат |
 |---|---|---|
-| ![UI](docs/screens/app.webp) | ![run](docs/screens/run-in-progress.webp) | ![result](docs/screens/system-run.webp) |
+| ![UI](docs/screens/dashboard.webp) | ![run](docs/screens/run-in-progress.webp) | ![result](docs/screens/run-result.webp) |
 
 | Налаштування | Про застосунок | English UI | Категорія «Порядок» |
 |---|---|---|---|

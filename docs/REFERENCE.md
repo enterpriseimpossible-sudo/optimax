@@ -133,7 +133,17 @@ OptiMax/
 | `patch-settings.js`, `write-undo-payload.js` | демо-стани та ручна перевірка відкату |
 | `publish.ps1`, `deploy-vercel.ps1` | публікація (GitHub + Vercel) |
 
-## 9. Історія змін структури
+## 9. Скріншоти документації
+
+`docs/screens/` (дзеркальні копії — у `site/assets/`, крім favicon) мають схему імен
+`<екран>[-<мова|тема>].webp`: `dashboard`, `run-in-progress`, `run-result`, `settings-uk`,
+`order-uk`, `about-uk`, `dashboard-en`, `theme-gray`, `theme-black`. Формат — **WebP**
+(конвертація: `tools/optimize-images.js`, економія ~66%).
+
+Перемалювати знімки: `tools/shot.ps1` (за потреби з `tools/click.ps1` / `tools/scroll.ps1`),
+потім оновити бази візуального тесту — `npm run test:visual -- --update`.
+
+## 10. Історія змін структури
 
 Матеріали для соцмереж (`marketing/instagram/`: карусель, сторіс, тексти, скрипти публікації)
 існували в проєкту до 2026-10-17 і були **видалені** (див. ADR-014) — публікацію завершено,

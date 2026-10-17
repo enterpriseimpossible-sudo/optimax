@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/embed-icon.js — вшиває assets/icon.ico та version info у зібраний OptiMax.exe
    (редактор PE-ресурсів resedit — чистий JS, без native-залежностей і санкцій на VC++ runtime).
    Версія береться з package.json.
@@ -25,11 +26,11 @@ const version = pkg.version || '1.0.0';
 const [vMaj, vMin, vPat] = version.split('.').map((n) => parseInt(n, 10) || 0);
 
 if (!fs.existsSync(exePath)) {
-  console.error('exe not found: ' + exePath);
+  logError('exe not found: ' + exePath);
   process.exit(1);
 }
 if (!fs.existsSync(icoPath)) {
-  console.error('icon not found: ' + icoPath + ' — run: npm run icon');
+  logError('icon not found: ' + icoPath + ' — run: npm run icon');
   process.exit(1);
 }
 
@@ -64,4 +65,4 @@ vi.outputToResourceEntries(res.entries);
 
 res.outputResource(exe);
 fs.writeFileSync(exePath, Buffer.from(exe.generate()));
-console.log(`embedded icon (${icons.length} sizes, ${groups.length} group(s)) + version info ${version}: ${exePath}`);
+log(`embedded icon (${icons.length} sizes, ${groups.length} group(s)) + version info ${version}: ${exePath}`);

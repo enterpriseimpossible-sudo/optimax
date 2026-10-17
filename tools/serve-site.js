@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/serve-site.js — локальний перегляд лендінга (тека site/) як статичного сайту.
    Usage: node tools/serve-site.js [port]   →  http://127.0.0.1:8902/ */
 const http = require('http');
@@ -24,7 +25,7 @@ const MIME = {
 };
 
 if (!fs.existsSync(root)) {
-  console.error('Теки site/ не існує — спочатку створіть лендінг.');
+  logError('Теки site/ не існує — спочатку створіть лендінг.');
   process.exit(1);
 }
 
@@ -38,4 +39,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream' });
     res.end(data);
   });
-}).listen(port, '127.0.0.1', () => console.log(`Site: http://127.0.0.1:${port}/`));
+}).listen(port, '127.0.0.1', () => log(`Site: http://127.0.0.1:${port}/`));

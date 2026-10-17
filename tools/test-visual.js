@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /**
  * tools/test-visual.js — локальний тест візуальних регресій інтерфейсу.
  *
@@ -35,7 +36,7 @@ const VIEWS = [
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const problems = [];
-const ok = (cond, label) => { console.log((cond ? '  ok  ' : '  FAIL') + ' ' + label); if (!cond) problems.push(label); };
+const ok = (cond, label) => { log((cond ? '  ok  ' : '  FAIL') + ' ' + label); if (!cond) problems.push(label); };
 
 /** Порівняння двох BGRA-буферів: частка пікселів, що відрізняються більш ніж на CHANNEL_DIFF. */
 function diffRatio(a, b) {
@@ -86,7 +87,7 @@ async function main() {
     if (update || !fs.existsSync(baseRaw)) {
       fs.writeFileSync(baseRaw, raw);
       fs.writeFileSync(basePng, png);
-      console.log(`  base ${view.name}: базове зображення збережено (${Math.round(png.length / 1024)} КБ)`);
+      log(`  base ${view.name}: базове зображення збережено (${Math.round(png.length / 1024)} КБ)`);
       continue;
     }
 
@@ -95,13 +96,13 @@ async function main() {
     ok(ratio <= TOLERANCE, `екран «${view.name}»: розбіжність ${(ratio * 100).toFixed(2)}% (допуск ${(TOLERANCE * 100).toFixed(2)}%)`);
   }
 
-  console.log('##VISUAL## ' + JSON.stringify({ ok: problems.length === 0, update, tolerance: TOLERANCE, problems }));
+  log('##VISUAL## ' + JSON.stringify({ ok: problems.length === 0, update, tolerance: TOLERANCE, problems }));
   win.destroy();
   app.exit(problems.length ? 1 : 0);
 }
 
 app.whenReady().then(main).catch((err) => {
-  console.log('  x тест упав: ' + (err && err.message));
-  console.log('##VISUAL## ' + JSON.stringify({ ok: false, problems: [String(err && err.message)] }));
+  log('  x тест упав: ' + (err && err.message));
+  log('##VISUAL## ' + JSON.stringify({ ok: false, problems: [String(err && err.message)] }));
   app.exit(1);
 });

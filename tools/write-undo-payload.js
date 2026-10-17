@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/write-undo-payload.js — пише undo-payload для ручної перевірки restore.ps1
    Usage: node tools/write-undo-payload.js <outFile>   (payload: повернути TestVal=before) */
 const fs = require('fs');
@@ -16,4 +17,4 @@ const payload = [
   }
 ];
 fs.writeFileSync(out, JSON.stringify(payload), 'utf8');
-console.log('payload written:', out);
+log('payload written:', out);

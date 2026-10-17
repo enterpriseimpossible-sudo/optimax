@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /**
  * tools/optimize-images.js — конвертує PNG у WebP (без сторонніх залежностей, через canvas в Electron).
  *
@@ -36,7 +37,7 @@ function collect(target) {
 
 app.whenReady().then(async () => {
   const files = inputs.flatMap(collect);
-  if (!files.length) { console.log('Немає PNG для обробки.'); app.exit(1); }
+  if (!files.length) { log('Немає PNG для обробки.'); app.exit(1); }
   const win = new BrowserWindow({ show: false, width: 400, height: 300, webPreferences: { contextIsolation: true } });
   let saved = 0; let before = 0; let after = 0;
 
@@ -62,16 +63,16 @@ app.whenReady().then(async () => {
       const sizeBefore = fs.statSync(png).size;
       before += sizeBefore; after += buf.length; saved++;
       const rel = path.relative(process.cwd(), outPath).replace(/\\/g, '/');
-      console.log(`  ${rel}: ${Math.round(sizeBefore / 1024)} КБ → ${Math.round(buf.length / 1024)} КБ`);
+      log(`  ${rel}: ${Math.round(sizeBefore / 1024)} КБ → ${Math.round(buf.length / 1024)} КБ`);
       if (!keepPng) fs.unlinkSync(png);
     } catch (err) {
-      console.log(`  FAIL ${path.basename(png)}: ${err.message}`);
+      log(`  FAIL ${path.basename(png)}: ${err.message}`);
     } finally {
       try { fs.unlinkSync(tmpHtml); } catch { /* ignore */ }
     }
   }
 
-  console.log(`\nОброблено: ${saved} | разом ${Math.round(before / 1024)} КБ → ${Math.round(after / 1024)} КБ (економія ${Math.round((1 - after / Math.max(before, 1)) * 100)}%)`);
+  log(`\nОброблено: ${saved} | разом ${Math.round(before / 1024)} КБ → ${Math.round(after / 1024)} КБ (економія ${Math.round((1 - after / Math.max(before, 1)) * 100)}%)`);
   win.destroy();
   app.exit(0);
 });

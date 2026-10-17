@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/serve-ui.js — міні-сервер для перегляду UI в браузері (мок-режим).
    Usage: node tools/serve-ui.js [port] */
 const http = require('http');
@@ -42,4 +43,4 @@ http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': MIME[path.extname(full).toLowerCase()] || 'application/octet-stream' });
     res.end(data);
   });
-}).listen(port, '127.0.0.1', () => console.log(`UI: http://127.0.0.1:${port}/src/ui/index.html`));
+}).listen(port, '127.0.0.1', () => log(`UI: http://127.0.0.1:${port}/src/ui/index.html`));

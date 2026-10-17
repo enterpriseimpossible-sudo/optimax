@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/test-order.js — пісочниця для задач категорії «Порядок».
    Створює фікстури у C:\Temp\opencode\order-sandbox (файли + справжні ярлики .lnk),
    запускає 4 скрипти (через службовий env OPTIMAX_ORDER_ROOT), перевіряє переміщення
@@ -13,7 +14,7 @@ const ps = require(path.join(__dirname, '..', 'src', 'core', 'ps'));
 const SANDBOX = 'C:\\Temp\\opencode\\order-sandbox';
 let failed = 0;
 const ok = (cond, label) => {
-  console.log(`${cond ? '  ok  ' : '  FAIL'} ${label}`);
+  log(`${cond ? '  ok  ' : '  FAIL'} ${label}`);
   if (!cond) failed++;
 };
 
@@ -50,7 +51,7 @@ async function undoAll(records, tag) {
 
   // ---- 1. tidy-desktop -------------------------------------------------
   {
-    console.log('[1] order/tidy-desktop.ps1');
+    log('[1] order/tidy-desktop.ps1');
     const dir = path.join(SANDBOX, 'desktop');
     touch(path.join(dir, 'photo 1.jpg'));
     touch(path.join(dir, 'Звіт.docx'));
@@ -97,7 +98,7 @@ async function undoAll(records, tag) {
 
   // ---- 2. tidy-downloads -----------------------------------------------
   {
-    console.log('[2] order/tidy-downloads.ps1');
+    log('[2] order/tidy-downloads.ps1');
     const dir = path.join(SANDBOX, 'downloads');
     const old = new Date(Date.now() - 3 * 86400e3);
     touch(path.join(dir, 'old.doc'), old);
@@ -126,7 +127,7 @@ async function undoAll(records, tag) {
 
   // ---- 3. tidy-names ---------------------------------------------------
   {
-    console.log('[3] order/tidy-names.ps1');
+    log('[3] order/tidy-names.ps1');
     const dir = path.join(SANDBOX, 'names');
     touch(path.join(dir, 'file  with   spaces.txt'));
     touch(path.join(dir, '  leading.txt'));
@@ -148,7 +149,7 @@ async function undoAll(records, tag) {
 
   // ---- 4. tidy-photos --------------------------------------------------
   {
-    console.log('[4] order/tidy-photos.ps1');
+    log('[4] order/tidy-photos.ps1');
     const dir = path.join(SANDBOX, 'photos');
     touch(path.join(dir, 'DSC_0001.jpg'), new Date(2023, 4, 1));
     touch(path.join(dir, 'vid.holiday.mp4'), new Date(2024, 7, 15));
@@ -168,6 +169,6 @@ async function undoAll(records, tag) {
   }
 
   if (!keep) rmrf(SANDBOX);
-  console.log(failed ? `\nRESULT: ${failed} FAIL` : '\nRESULT: усі перевірки «Порядку» пройдено');
+  log(failed ? `\nRESULT: ${failed} FAIL` : '\nRESULT: усі перевірки «Порядку» пройдено');
   process.exit(failed ? 1 : 0);
-})().catch((e) => { console.error(e); process.exit(1); });
+})().catch((e) => { logError(e); process.exit(1); });

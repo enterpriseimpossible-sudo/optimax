@@ -1,4 +1,5 @@
 'use strict';
+const { log, logWarn, logError } = require('./lib/log');
 /* tools/patch-settings.js — точкове редагування %APPDATA%\OptiMax\settings.json (для демо-станів).
    Usage: node tools/patch-settings.js theme=black lastView=cleanup locale=en
    Підтримка другого рівня через крапку; true/false/null/числа розпізнаються. */
@@ -24,4 +25,4 @@ for (const arg of process.argv.slice(2)) {
   obj[keyPath[keyPath.length - 1]] = val;
 }
 fs.writeFileSync(file, JSON.stringify(raw, null, 2), 'utf8');
-console.log('patched: ' + file);
+log('patched: ' + file);

@@ -58,6 +58,8 @@ npm run release      # = npm run package:vc (пакування + VC++ DLL) + с
 # SHA256: F0F4B2537E1E79843ABA8AC247623ACA55EE8A58114D41B2EF09B9072CA7B882
 # GitHub → Releases → Draft a new release → tag v1.4.1 → прикріпіть цей zip
 # нотатки релізу: docs/release-notes-v1.4.1.md
+# ✅ v1.4.1 опубліковано 2026-10-17 (Latest) командою:
+#    gh release create v1.4.1 "dist\OptiMax-1.4.1-win-x64.zip" --title "OptiMax 1.4.1 — технічний реліз" --notes-file docs\release-notes-v1.4.1.md
 ```
 
 > `npm run release` тепер використовує `package:vc`, тому в архіві завжди є VC++ DLL

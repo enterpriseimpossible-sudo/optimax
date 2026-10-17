@@ -174,21 +174,24 @@ Portable-реліз: `release/OptiMax-win32-x64/OptiMax.exe` (asar, іконка
   інструкції публікації (GitHub + Vercel, зокрема `vercel deploy --temporary` без акаунта) — `docs/DEPLOY.md`.
   Перевірки після переїзду: тести 14/14, check-ui 0 проблем, PS 39/39, пісочниця «Порядку» — усі OK,
   репак і димовий запуск exe — ОК (asar без site/docs/tools/tests).
-- 2026-10-17 (підготовка релізу 1.4.1, **не опубліковано**): версію піднято 1.4.0 → 1.4.1 у
-  `package.json`/`package-lock.json`, `src/ui/index.html`, моку, `site/script.js`, README, EULA/PRIVACY/PRD;
-  CHANGELOG: `Unreleased` → `[1.4.1] — 2026-10-17`; `npm run release` тепер = `package:vc` + zip;
-  зібрано артефакт `dist\OptiMax-1.4.1-win-x64.zip` (105.9 МБ,
-  SHA256 `F0F4B2537E1E79843ABA8AC247623ACA55EE8A58114D41B2EF09B9072CA7B882`), exe `1.4.1.0`, DLL усередині;
-  нотатки — `docs/release-notes-v1.4.1.md`. Пуш, деплой сайту й GitHub Release **не виконувались**
-  (потрібен окремий дозвіл власника).
-  (`github.com/enterpriseimpossible-sudo/optimax`, MIT, топіки, домашня сторінка = лендінг), CI в Actions — 4/4 success;
+- 2026-10-16 (деплой лендінга на Vercel): проєкт `optimax-ua`, scope `er-7`
+  (`site/.vercel/project.json`, `.vercel` у .gitignore). Вхід виконано через `vercel login` (device-flow,
+  акаунт користувача). Імена `optimax`/`optima` глобально зайняті — Vercel додавав суфікси, тому взято
+  `optimax-ua` (чиста адреса без суфікса); зайві проєкти (`optimax`, `optima`) видалено.
+  Додано `tools/deploy-vercel.ps1`. Тимчасовий тунель trycloudflare (для перевірки до логіну) зупинено.
+- 2026-10-17 (публікація й чистка): репозиторій опубліковано на GitHub
+  (`github.com/enterpriseimpossible-sudo/optimax`, MIT, топіки, домашня сторінка = лендінг), CI в Actions — success;
   створено реліз **v1.4.0** з архівом `OptiMax-1.4.0-win-x64.zip` (105.6 МБ, sha256 збігається);
   лендінг перезадеплоєно, кнопка «Завантажити» веде на GitHub Releases;
   матеріали соцмереж `marketing/instagram/` (24 МБ) **видалено** за рішенням власника (ADR-014),
-  дублікати скриптів прибрано з теки `Проекти\INSTAGRAM` (оригінали лишились).
-  (проєкт `optimax-ua`, scope `er-7`; `site/.vercel/project.json`, `.vercel` у .gitignore).
-  Вхід виконано через `vercel login` (device-flow, акаунт користувача). Імена `optimax`/`optima`
-  глобально зайняті — Vercel додавав суфікси, тому взято `optimax-ua` (чиста адреса без суфікса);
-  зайві проєкти (`optimax`, `optima`) видалено. Додано `tools/deploy-vercel.ps1`.
-  Тимчасовий тунель trycloudflare (для перевірки до логіну) зупинено.
-  Залишається: `git push` на GitHub (акаунта немає в середовищі) і публікація Instagram-поста.
+  дублікати скриптів прибрано з теки `Проекти\INSTAGRAM` (оригінали лишились);
+  Instagram-пост опубліковано (`/p/DekhTAbCOvJ/`, 4:5 без кропу).
+- 2026-10-17 (реліз 1.4.1 — **опубліковано**): версію піднято 1.4.0 → 1.4.1 у
+  `package.json`/`package-lock.json`, `src/ui/index.html`, моку, `site/script.js`, README, EULA/PRIVACY/PRD;
+  CHANGELOG: `Unreleased` → `[1.4.1] — 2026-10-17`; `npm run release` тепер = `package:vc` + zip;
+  артефакт `dist\OptiMax-1.4.1-win-x64.zip` (105.9 МБ,
+  SHA256 `F0F4B2537E1E79843ABA8AC247623ACA55EE8A58114D41B2EF09B9072CA7B882`), exe `1.4.1.0`, VC++ DLL усередині;
+  усі 9 скріншотів інтерфейсу перезнято на збірці 1.4.1, бази візуального тесту перегенеровано;
+  нотатки — `docs/release-notes-v1.4.1.md`. Публікацію виконано за окремим дозволом власника:
+  `git push` (4 коміти, CI — success), GitHub Release **v1.4.1** (Latest, архів 111 090 647 байт),
+  лендінг перезадеплоєно (кнопка «Завантажити» → 200, 105.9 МБ, знімки WebP на місці).

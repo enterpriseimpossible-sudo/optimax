@@ -1,17 +1,35 @@
-﻿# Створює ярлик «Запустити OptiMax» на копії F:\OptiMax (на release exe).
-# Usage: powershell -File tools/make-shortcut.ps1 [-Root F:\OptiMax]
-# УВАГА: файл має бути збережений у UTF-8 **з BOM** (кириличний рядок нижче).
+﻿# make-shortcut.ps1 — створює ярлик «OptiMax» на робочому столі користувача.
+# Usage: powershell -File tools/make-shortcut.ps1 [-Exe <шлях до OptiMax.exe>] [-Name OptiMax]
+#   без -Exe береться збірка з release\OptiMax-win32-x64\OptiMax.exe відносно кореня репозиторію.
+# Файл збережено в UTF-8 **з BOM** (кирилиця в назві ярлика).
 param(
-  [string]$Root = 'F:\OptiMax'
+  [string]$Exe = '',
+  [string]$Name = 'OptiMax'
 )
-$exe = Join-Path $Root 'release\OptiMax-win32-x64\OptiMax.exe'
-if (-not (Test-Path $exe)) { Write-Output "exe not found: $exe"; exit 2 }
-$ws = New-Object -ComObject WScript.Shell
-$lnk = Join-Path $Root 'Запустити OptiMax.lnk'
-$sc = $ws.CreateShortcut($lnk)
-$sc.TargetPath = $exe
-$sc.WorkingDirectory = (Split-Path $exe)
-$sc.IconLocation = $exe
-$sc.Description = 'OptiMax portable'
-$sc.Save()
+
+$ErrorActionPreference = 'Stop'
+
+if (-not $Exe) {
+  $root = Split-Path $PSScriptRoot -Parent
+  $Exe = Join-Path $root 'release\OptiMax-win32-x64\OptiMax.exe'
+}
+
+if (-not (Test-Path $Exe)) {
+  Write-Output "exe not found: $Exe"
+  Write-Output 'Спершу зберіть застосунок: npm run package'
+  exit 2
+}
+
+$desktop = [Environment]::GetFolderPath('Desktop')
+$lnk = Join-Path $desktop "$Name.lnk"
+
+$shell = New-Object -ComObject WScript.Shell
+$shortcut = $shell.CreateShortcut($lnk)
+$shortcut.TargetPath = (Resolve-Path $Exe).Path
+$shortcut.WorkingDirectory = (Split-Path (Resolve-Path $Exe).Path)
+$shortcut.IconLocation = "$((Resolve-Path $Exe).Path),0"
+$shortcut.Description = 'OptiMax — оптимізація ПК (ER7 Studio)'
+$shortcut.Save()
+
 Write-Output "shortcut created: $lnk"
+Write-Output ("target: " + $shortcut.TargetPath)

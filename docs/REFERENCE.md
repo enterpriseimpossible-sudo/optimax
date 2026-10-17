@@ -131,7 +131,8 @@ OptiMax/
 | `make-release-zip.ps1` | релізний архів `dist/OptiMax-<версія>-win-x64.zip` + SHA256 (викликається через `npm run release`) |
 | `shot.ps1`, `capture.ps1`, `click.ps1`, `scroll.ps1`, `sendkey.ps1` | керування вікном і скріншоти для документації |
 | `patch-settings.js`, `write-undo-payload.js` | демо-стани та ручна перевірка відкату |
-| `publish.ps1`, `deploy-vercel.ps1` | публікація (GitHub + Vercel) |
+| `deploy-vercel.ps1` | деплой лендінга на Vercel (`npx vercel --prod` у теці `site/`) |
+| `make-shortcut.ps1` | ярлик «OptiMax» на робочому столі (`npm run shortcut`, після `npm run package`) |
 
 ## 9. Скріншоти документації
 

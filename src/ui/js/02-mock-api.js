@@ -108,7 +108,7 @@ function createMockApi() {
             locale: lang,
             locales: localeList,
             dict: all[lang] || all.uk || {},
-            version: '1.4.0-demo',
+            version: '1.4.1-demo',
             lite: false,
             theme: localStorage.getItem('optimax-theme') || 'light',
             liteMode: localStorage.getItem('optimax-lite') || 'auto'
@@ -134,7 +134,7 @@ function createMockApi() {
           localStorage.removeItem('optimax-theme');
           localStorage.removeItem('optimax-lite');
           return true;
-        case 'app:info': return { admin, version: '1.4.0-demo', platform: 'win32', userData: '%APPDATA%\\OptiMax (демо)', lite: false };
+        case 'app:info': return { admin, version: '1.4.1-demo', platform: 'win32', userData: '%APPDATA%\\OptiMax (демо)', lite: false };
         case 'stats:live': return { live: { cpu: 12, cores: 8, ramUsed: 10 * 1024 ** 3, ramTotal: 32 * 1024 ** 3, uptimeSec: 180000, host: 'OPTIMAX-DEMO' }, disks: null };
         case 'analyze:run': return {
           ok: true, details: {

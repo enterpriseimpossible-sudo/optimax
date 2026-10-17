@@ -174,7 +174,13 @@ Portable-реліз: `release/OptiMax-win32-x64/OptiMax.exe` (asar, іконка
   інструкції публікації (GitHub + Vercel, зокрема `vercel deploy --temporary` без акаунта) — `docs/DEPLOY.md`.
   Перевірки після переїзду: тести 14/14, check-ui 0 проблем, PS 39/39, пісочниця «Порядку» — усі OK,
   репак і димовий запуск exe — ОК (asar без site/docs/tools/tests).
-- 2026-10-17 (публікація й чистка): репозиторій опубліковано на GitHub
+- 2026-10-17 (підготовка релізу 1.4.1, **не опубліковано**): версію піднято 1.4.0 → 1.4.1 у
+  `package.json`/`package-lock.json`, `src/ui/index.html`, моку, `site/script.js`, README, EULA/PRIVACY/PRD;
+  CHANGELOG: `Unreleased` → `[1.4.1] — 2026-10-17`; `npm run release` тепер = `package:vc` + zip;
+  зібрано артефакт `dist\OptiMax-1.4.1-win-x64.zip` (105.9 МБ,
+  SHA256 `F0F4B2537E1E79843ABA8AC247623ACA55EE8A58114D41B2EF09B9072CA7B882`), exe `1.4.1.0`, DLL усередині;
+  нотатки — `docs/release-notes-v1.4.1.md`. Пуш, деплой сайту й GitHub Release **не виконувались**
+  (потрібен окремий дозвіл власника).
   (`github.com/enterpriseimpossible-sudo/optimax`, MIT, топіки, домашня сторінка = лендінг), CI в Actions — 4/4 success;
   створено реліз **v1.4.0** з архівом `OptiMax-1.4.0-win-x64.zip` (105.6 МБ, sha256 збігається);
   лендінг перезадеплоєно, кнопка «Завантажити» веде на GitHub Releases;

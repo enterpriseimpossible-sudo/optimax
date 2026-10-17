@@ -53,11 +53,15 @@ npm run release             # перезбірка + dist\OptiMax-<версія>
 Далі — реліз застосунку як asset (файли збірки у git не потрапляють через ліміт 100 МБ):
 
 ```powershell
-npm run release      # = npm run package + стиснення у dist\OptiMax-<версія>-win-x64.zip + друк SHA256
-# поточний архів: dist\OptiMax-1.4.0-win-x64.zip (105.6 МБ)
-# SHA256: 4BB9CFF08FC94B3C7B6F0AD0A630F48627D9F84B20641B8E0E701022F86BE387
-# GitHub → Releases → Draft a new release → tag v1.4.0 → прикріпіть цей zip
+npm run release      # = npm run package:vc (пакування + VC++ DLL) + стиснення + SHA256
+# поточний архів: dist\OptiMax-1.4.1-win-x64.zip (105.9 МБ)
+# SHA256: F0F4B2537E1E79843ABA8AC247623ACA55EE8A58114D41B2EF09B9072CA7B882
+# GitHub → Releases → Draft a new release → tag v1.4.1 → прикріпіть цей zip
+# нотатки релізу: docs/release-notes-v1.4.1.md
 ```
+
+> `npm run release` тепер використовує `package:vc`, тому в архіві завжди є VC++ DLL
+> (потрібні для майбутнього Electron 43+; для Electron 31 вони просто лежать поряд і не заважають).
 
 Після створення релізу замініть у `site/script.js` змінну `DOWNLOAD_URL` на
 `https://github.com/<ВАШ_ЛОГІН>/optimax/releases/latest` — кнопки «Завантажити» почнуть вести на релізи.

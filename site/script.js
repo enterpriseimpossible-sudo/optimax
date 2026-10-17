@@ -16,7 +16,7 @@ document.documentElement.classList.add('js');
    сторінці). КОЛИ БУДЕ РЕЛІЗ — замініть на пряме посилання GitHub Releases:
    const DOWNLOAD_URL = 'https://github.com/<org>/<repo>/releases/latest/download/OptiMax.exe';
    (або на сторінку релізів: 'https://github.com/<org>/<repo>/releases/latest'). */
-const DOWNLOAD_URL = 'https://github.com/enterpriseimpossible-sudo/optimax/releases/latest/download/OptiMax-1.4.0-win-x64.zip';
+const DOWNLOAD_URL = 'https://github.com/enterpriseimpossible-sudo/optimax/releases/latest/download/OptiMax-1.4.1-win-x64.zip';
 
 /* GITHUB_URL — посилання на репозиторій/релізи. */
 const GITHUB_URL = 'https://github.com/enterpriseimpossible-sudo/optimax';
@@ -241,7 +241,7 @@ const STRINGS = {
     'gal.8.t': 'Black theme',
     'gal.8.c': 'The "Black" theme',
     'gal.9.t': 'About',
-    'gal.9.c': 'Version 1.4.0 · ER7 Studio',
+    'gal.9.c': 'Version 1.4.1 · ER7 Studio',
 
     'theme.kicker': 'Appearance',
     'theme.title': '3 themes and 5 languages — your way',

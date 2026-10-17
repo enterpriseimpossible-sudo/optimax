@@ -1,7 +1,7 @@
 {
   "name": "optimax",
   "productName": "OptiMax",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "OptiMax — безкоштовний інструмент оптимізації комп'ютера від ER7 Studio (очищення, порядок, продуктивність, мережа, система). 5 мов інтерфейсу, три теми, повний відкат змін, економний режим для слабких ПК",
   "author": "ER7 Studio",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "icon": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-icon.ps1",
     "package": "npm run icon && electron-packager . OptiMax --platform=win32 --arch=x64 --out=release --overwrite --asar --icon=assets/icon.ico --ignore=\"^/(site|docs|tests|tools|marketing|dist|release|\\.github|\\.git)($|/)\" --ignore=\"^/\\.(editorconfig|gitattributes|gitignore|nvmrc)$\" --ignore=\"^/(CONTRIBUTING|CODE_OF_CONDUCT|SECURITY|CHANGELOG)\\.md$\" --ignore=\"\\.lnk$\" && node tools/embed-icon.js release/OptiMax-win32-x64/OptiMax.exe",
     "package:vc": "npm run package && powershell -NoProfile -ExecutionPolicy Bypass -File tools/bundle-vcruntime.ps1",
-    "release": "npm run package && powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-release-zip.ps1"
+    "release": "npm run package:vc && powershell -NoProfile -ExecutionPolicy Bypass -File tools/make-release-zip.ps1"
   },
   "devDependencies": {
     "@electron/packager": "^20.3.0",

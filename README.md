@@ -166,6 +166,7 @@ npm run verify                             # тести + цілісність U
 npm run test:order                         # пісочниця «Порядку»: переміщення + undo на фейкових теках
 npm run mock                               # UI у браузері: http://127.0.0.1:8899/src/ui/index.html
 npm run package                            # portable-збірка (іконка → packager → version info)
+npm run shortcut                           # ярлик «OptiMax» на робочому столі (для зібраної версії)
 node tools/run-task.js <taskId>            # прогін однієї задачі як у застосунку (з undo/логом)
 powershell -File tools/shot.ps1 -Out shot.png -ProcessName OptiMax   # скріншот вікна (PrintWindow)
 ```
@@ -181,6 +182,7 @@ npm run package   # іконка → electron-packager → вшивання ік
 ```
 
 Результат: `release\OptiMax-win32-x64\` — розповсюджується як є (запуск `OptiMax.exe`).
+Ярлик на робочому столі для зібраної версії створює `npm run shortcut` (ціль — `release\OptiMax-win32-x64\OptiMax.exe`).
 
 > **Важливо (сумісність зі старими машинами):**
 > Electron запінено на **31.7.7** — новіші версії (44+) вимагають VC++ runtime, якого на цільовій
